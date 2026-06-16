@@ -1,7 +1,6 @@
 package com.yassertv
 
 import android.os.Bundle
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.media3.common.MediaItem
 import androidx.media3.common.PlaybackException
@@ -22,11 +21,7 @@ class PlayerActivity : AppCompatActivity() {
     setContentView(R.layout.activity_player)
 
     val playerView = findViewById<PlayerView>(R.id.playerView)
-    val titleText = findViewById<TextView>(R.id.playerTitle)
-
-    val name = intent.getStringExtra("name") ?: "قناة"
     val url = intent.getStringExtra("url") ?: return
-    titleText.text = name
 
     // DataSource factory مثل VLC للتعامل مع 302 redirect و Referer
     val origin = try {
