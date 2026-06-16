@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  android:background="@color/bg"
+  android:padding="16dp">
+
+  <LinearLayout
+    android:id="@+id/tabs"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical">
+
+    <TextView android:id="@+id/tabLive" android:layout_width="0dp" android:layout_height="match_parent"
+      android:layout_weight="1" android:gravity="center" android:text="@string/live"
+      android:textColor="@color/text" android:textSize="16sp" android:background="@drawable/tab_bg" />
+    <TextView android:id="@+id/tabWorldCup" android:layout_width="0dp" android:layout_height="match_parent"
+      android:layout_weight="1" android:gravity="center" android:text="@string/worldcup"
+      android:textColor="@color/text" android:textSize="16sp" android:background="@drawable/tab_bg" />
+    <TextView android:id="@+id/tabMovies" android:layout_width="0dp" android:layout_height="match_parent"
+      android:layout_weight="1" android:gravity="center" android:text="@string/movies"
+      android:textColor="@color/text" android:textSize="16sp" android:background="@drawable/tab_bg" />
+    <TextView android:id="@+id/tabSeries" android:layout_width="0dp" android:layout_height="match_parent"
+      android:layout_weight="1" android:gravity="center" android:text="@string/series"
+      android:textColor="@color/text" android:textSize="16sp" android:background="@drawable/tab_bg" />
+  </LinearLayout>
+
+  <LinearLayout
+    android:id="@+id/categoryRow"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:layout_marginTop="8dp" />
+
+  <EditText
+    android:id="@+id/searchInput"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:layout_marginTop="8dp"
+    android:hint="@string/loading"
+    android:background="@color/card_bg"
+    android:textColor="@color/text"
+    android:paddingHorizontal="12dp" />
+
+  <ProgressBar
+    android:id="@+id/progressBar"
+    android:layout_width="48dp"
+    android:layout_height="48dp"
+    android:layout_gravity="center"
+    android:layout_marginTop="32dp" />
+
+  <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/grid"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:layout_marginTop="8dp" />
+</LinearLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:orientation="vertical"
+  android:background="@color/card_bg"
+  android:padding="8dp"
+  android:layout_margin="4dp">
+
+  <ImageView
+    android:id="@+id/itemImage"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:scaleType="centerCrop" />
+
+  <TextView
+    android:id="@+id/itemTitle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textColor="@color/text"
+    android:textSize="13sp"
+    android:maxLines="2"
+    android:layout_marginTop="4dp" />
+
+  <TextView
+    android:id="@+id/itemRating"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textColor="@color/accent"
+    android:textSize="11sp" />
+</LinearLayout>
