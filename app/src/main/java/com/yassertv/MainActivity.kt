@@ -2,6 +2,8 @@ package com.yassertv
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +16,7 @@ class MainActivity : AppCompatActivity() {
   private lateinit var grid: RecyclerView
   private lateinit var adapter: MediaAdapter
   private lateinit var progressBar: ProgressBar
+  private lateinit var errorText: TextView
   private lateinit var tabs: LinearLayout
   private lateinit var categoryRow: LinearLayout
   private lateinit var searchInput: EditText
@@ -21,8 +24,9 @@ class MainActivity : AppCompatActivity() {
   private var currentSection = "live"
   private var currentCategory = "الكل"
   private var allItems = listOf<MediaItem>()
-  private var filteredItems = listOf<MediaItem>()
+  private var dataLoaded = false
   private var cachedData = mutableMapOf<String, List<MediaItem>>()
+  private val timeoutHandler = Handler(Looper.getMainLooper())
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -33,6 +37,7 @@ class MainActivity : AppCompatActivity() {
     categoryRow = findViewById(R.id.categoryRow)
     searchInput = findViewById(R.id.searchInput)
     progressBar = findViewById(R.id.progressBar)
+    errorText = findViewById(R.id.errorText)
 
     adapter = MediaAdapter { item ->
       val intent = Intent(this, PlayerActivity::class.java)
@@ -64,7 +69,21 @@ class MainActivity : AppCompatActivity() {
   private fun switchSection(section: String) {
     currentSection = section
     currentCategory = "الكل"
+    dataLoaded = false
     progressBar.visibility = View.VISIBLE
+    errorText.visibility = View.GONE
+    grid.visibility = View.VISIBLE
+
+    // Timeout بعد 15 ثانية
+    timeoutHandler.removeCallbacksAndMessages(null)
+    timeoutHandler.postDelayed({
+      if (!dataLoaded) {
+        progressBar.visibility = View.GONE
+        errorText.visibility = View.VISIBLE
+        errorText.text = "تعذر الاتصال بالسيرفر\nتأكد من اتصالك بالانترنت"
+        grid.visibility = View.GONE
+      }
+    }, 15000)
 
     // Highlight active tab
     for (i in 0 until tabs.childCount) {
@@ -73,13 +92,12 @@ class MainActivity : AppCompatActivity() {
     val tabMap = mapOf("live" to R.id.tabLive, "worldcup" to R.id.tabWorldCup, "movies" to R.id.tabMovies, "series" to R.id.tabSeries)
     tabs.findViewById<View>(tabMap[section] ?: R.id.tabLive)?.isSelected = true
 
-    // Load categories
     loadCategories(section)
 
-    // Load data
     if (cachedData.containsKey(section)) {
       allItems = cachedData[section]!!
-      applyFilters()
+      dataLoaded = true
+      filterItems(searchInput.text.toString())
       return
     }
 
@@ -87,7 +105,8 @@ class MainActivity : AppCompatActivity() {
       runOnUiThread {
         cachedData[section] = items
         allItems = items
-        applyFilters()
+        dataLoaded = true
+        filterItems(searchInput.text.toString())
       }
     }
 
@@ -135,15 +154,13 @@ class MainActivity : AppCompatActivity() {
     val items = if (currentCategory == "الكل") allItems
     else allItems.filter { matchesCategory(it, currentCategory) }
 
-    filteredItems = if (query.isBlank()) items
+    val filtered = if (query.isBlank()) items
     else items.filter { it.name.contains(query, ignoreCase = true) }
 
-    adapter.submitList(filteredItems)
+    adapter.submitList(filtered)
     progressBar.visibility = View.GONE
-  }
-
-  private fun applyFilters() {
-    filterItems(searchInput.text.toString())
+    errorText.visibility = View.GONE
+    grid.visibility = View.VISIBLE
   }
 
   private fun matchesCategory(item: MediaItem, category: String): Boolean {
