@@ -6,6 +6,6 @@
   <string name="movies">أفلام</string>
   <string name="series">مسلسلات</string>
   <string name="favorites">المفضلة</string>
-  <string name="loading">جاري التحميل...</string>
+  <string name="loading">بحث...</string>
   <string name="error">خطأ في الاتصال</string>
 </resources>

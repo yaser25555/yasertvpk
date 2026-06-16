@@ -1,6 +1,7 @@
 package com.yassertv
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -47,7 +48,7 @@ class MainActivity : AppCompatActivity() {
       startActivity(intent)
     }
 
-    grid.layoutManager = GridLayoutManager(this, 5)
+    updateGridColumns()
     grid.adapter = adapter
 
     tabs.findViewById<View>(R.id.tabLive)?.setOnClickListener { switchSection("live") }
@@ -170,6 +171,23 @@ class MainActivity : AppCompatActivity() {
     }
     return item.name.contains(category, ignoreCase = true) ||
            item.genre.contains(category, ignoreCase = true)
+  }
+
+  override fun onConfigurationChanged(newConfig: Configuration) {
+    super.onConfigurationChanged(newConfig)
+    updateGridColumns()
+  }
+
+  private fun updateGridColumns() {
+    val widthDp = resources.configuration.screenWidthDp
+    val cols = when {
+      widthDp < 360 -> 2
+      widthDp < 480 -> 2
+      widthDp < 600 -> 3
+      widthDp < 840 -> 4
+      else -> 5
+    }
+    grid.layoutManager = GridLayoutManager(this, cols)
   }
 
   private fun extractQuality(name: String): String {
