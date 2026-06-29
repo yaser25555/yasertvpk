@@ -39,10 +39,9 @@ data class Episode(
   val movieImage: String = ""
 )
 
-// Item واحد لكل عنصر في الواجهة
 data class MediaItem(
   val id: String,
-  val type: String,  // "live", "movie", "series", "episode"
+  val type: String,
   val name: String,
   val image: String = "",
   val rating: String = "0",
@@ -50,10 +49,16 @@ data class MediaItem(
   val genre: String = "",
   val categoryId: String = ""
 ) {
-  fun streamUrl(): String = when (type) {
-    "live" -> "${Config.STREAMING_URL}/live/${Config.USERNAME}/${Config.PASSWORD}/${id}.ts"
-    "movie" -> "${Config.STREAMING_URL}/movie/${Config.USERNAME}/${Config.PASSWORD}/${id}.mp4"
-    "episode" -> "${Config.STREAMING_URL}/series/${Config.USERNAME}/${Config.PASSWORD}/${id}.mp4"
-    else -> ""
+  fun streamUrl(): String {
+    val s = Config.activeServer
+    val base = s.streamingUrl
+    val u = s.username
+    val p = s.password
+    return when (type) {
+      "live" -> "$base/live/$u/$p/$id.ts"
+      "movie" -> "$base/movie/$u/$p/$id.mp4"
+      "episode" -> "$base/series/$u/$p/$id.mp4"
+      else -> ""
+    }
   }
 }

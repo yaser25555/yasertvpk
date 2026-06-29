@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent" android:layout_height="match_parent"
+  android:orientation="vertical"
+  android:gravity="center"
+  android:background="#1a1a2e"
+  android:padding="24dp">
+
+  <TextView
+    android:layout_width="wrap_content" android:layout_height="wrap_content"
+    android:text="YasserTV"
+    android:textSize="32sp"
+    android:textStyle="bold"
+    android:textColor="#e94560"
+    android:layout_marginBottom="8dp" />
+
+  <TextView
+    android:layout_width="wrap_content" android:layout_height="wrap_content"
+    android:text="IPTV Smart Player"
+    android:textSize="14sp"
+    android:textColor="#cccccc"
+    android:layout_marginBottom="32dp" />
+
+  <Spinner
+    android:id="@+id/serverSpinner"
+    android:layout_width="match_parent" android:layout_height="48dp"
+    android:background="#0f3460"
+    android:layout_marginBottom="16dp" />
+
+  <EditText
+    android:id="@+id/usernameInput"
+    android:layout_width="match_parent" android:layout_height="48dp"
+    android:hint="اسم المستخدم"
+    android:inputType="text"
+    android:paddingHorizontal="12dp"
+    android:background="#16213e"
+    android:textColor="#ffffff"
+    android:textColorHint="#888888"
+    android:layout_marginBottom="12dp" />
+
+  <EditText
+    android:id="@+id/passwordInput"
+    android:layout_width="match_parent" android:layout_height="48dp"
+    android:hint="كلمة المرور"
+    android:inputType="textPassword"
+    android:paddingHorizontal="12dp"
+    android:background="#16213e"
+    android:textColor="#ffffff"
+    android:textColorHint="#888888"
+    android:layout_marginBottom="24dp" />
+
+  <Button
+    android:id="@+id/loginButton"
+    android:layout_width="200dp" android:layout_height="48dp"
+    android:text="دخول"
+    android:textSize="16sp"
+    android:backgroundTint="#e94560"
+    android:textColor="#ffffff"
+    android:stateListAnimator="@null" />
+
+  <ProgressBar
+    android:id="@+id/loginProgress"
+    android:layout_width="32dp" android:layout_height="32dp"
+    android:layout_gravity="center"
+    android:visibility="gone"
+    android:layout_marginTop="16dp" />
+
+  <TextView
+    android:id="@+id/loginMessage"
+    android:layout_width="wrap_content" android:layout_height="wrap_content"
+    android:textColor="#cccccc"
+    android:textSize="13sp"
+    android:gravity="center"
+    android:layout_marginTop="16dp" />
+</LinearLayout>

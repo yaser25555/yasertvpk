@@ -2,7 +2,7 @@
 <resources>
   <string name="app_name">Yasser TV</string>
   <string name="live">قنوات مباشرة</string>
-  <string name="worldcup">كأس العالم</string>
+
   <string name="movies">أفلام</string>
   <string name="series">مسلسلات</string>
   <string name="favorites">المفضلة</string>

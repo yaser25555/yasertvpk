@@ -1,71 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
+  android:layout_width="match_parent" android:layout_height="match_parent"
   android:orientation="vertical"
-  android:background="@color/bg"
-  android:padding="16dp">
+  android:background="#1a1a2e">
+
+  <androidx.appcompat.widget.Toolbar
+    android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
+    android:background="#16213e">
+
+    <LinearLayout
+      android:layout_width="match_parent" android:layout_height="match_parent"
+      android:orientation="horizontal" android:gravity="center_vertical">
+
+      <TextView
+        android:id="@+id/tvServerName"
+        android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textColor="#ffffff" android:textSize="16sp"
+        android:textStyle="bold" android:maxLines="1" android:ellipsize="end" />
+
+      <ImageButton
+        android:id="@+id/btnSettings"
+        android:layout_width="40dp" android:layout_height="40dp"
+        android:src="@android:drawable/ic_menu_manage"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="إعدادات"
+        android:tint="#ffffff" />
+    </LinearLayout>
+  </androidx.appcompat.widget.Toolbar>
 
   <LinearLayout
     android:id="@+id/tabs"
-    android:layout_width="match_parent"
-    android:layout_height="48dp"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:gravity="center_vertical">
+    android:background="#16213e">
 
-    <TextView android:id="@+id/tabLive" android:layout_width="0dp" android:layout_height="match_parent"
-      android:layout_weight="1" android:gravity="center" android:text="@string/live"
-      android:textColor="@color/text" android:textSize="16sp" android:background="@drawable/tab_bg" />
-    <TextView android:id="@+id/tabWorldCup" android:layout_width="0dp" android:layout_height="match_parent"
-      android:layout_weight="1" android:gravity="center" android:text="@string/worldcup"
-      android:textColor="@color/text" android:textSize="16sp" android:background="@drawable/tab_bg" />
-    <TextView android:id="@+id/tabMovies" android:layout_width="0dp" android:layout_height="match_parent"
-      android:layout_weight="1" android:gravity="center" android:text="@string/movies"
-      android:textColor="@color/text" android:textSize="16sp" android:background="@drawable/tab_bg" />
-    <TextView android:id="@+id/tabSeries" android:layout_width="0dp" android:layout_height="match_parent"
-      android:layout_weight="1" android:gravity="center" android:text="@string/series"
-      android:textColor="@color/text" android:textSize="16sp" android:background="@drawable/tab_bg" />
+    <Button
+      android:id="@+id/tabLive"
+      android:layout_width="0dp" android:layout_height="44dp"
+      android:layout_weight="1"
+      android:text="📺 بث مباشر"
+      android:textSize="13sp"
+      android:textColor="@color/tab_text_color"
+      android:background="@drawable/tab_bg"
+      android:gravity="center"
+      android:stateListAnimator="@null" />
+
+    <Button
+      android:id="@+id/tabMovies"
+      android:layout_width="0dp" android:layout_height="44dp"
+      android:layout_weight="1"
+      android:text="🎬 أفلام"
+      android:textSize="13sp"
+      android:textColor="@color/tab_text_color"
+      android:background="@drawable/tab_bg"
+      android:gravity="center"
+      android:stateListAnimator="@null" />
+
+    <Button
+      android:id="@+id/tabSeries"
+      android:layout_width="0dp" android:layout_height="44dp"
+      android:layout_weight="1"
+      android:text="📺 مسلسلات"
+      android:textSize="13sp"
+      android:textColor="@color/tab_text_color"
+      android:background="@drawable/tab_bg"
+      android:gravity="center"
+      android:stateListAnimator="@null" />
   </LinearLayout>
 
   <LinearLayout
     android:id="@+id/categoryRow"
-    android:layout_width="match_parent"
-    android:layout_height="40dp"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:gravity="center_vertical"
-    android:layout_marginTop="8dp" />
+    android:padding="8dp"
+    android:background="#0f3460" />
 
   <EditText
     android:id="@+id/searchInput"
-    android:layout_width="match_parent"
-    android:layout_height="40dp"
-    android:layout_marginTop="8dp"
-    android:hint="@string/loading"
-    android:background="@color/card_bg"
-    android:textColor="@color/text"
-    android:paddingHorizontal="12dp" />
+    android:layout_width="match_parent" android:layout_height="40dp"
+    android:hint="🔍 بحث..."
+    android:inputType="text"
+    android:paddingHorizontal="12dp"
+    android:background="#ffffff"
+    android:textColor="#000000"
+    android:textColorHint="#888888"
+    android:layout_margin="8dp" />
 
-  <ProgressBar
-    android:id="@+id/progressBar"
-    android:layout_width="48dp"
-    android:layout_height="48dp"
-    android:layout_gravity="center"
-    android:layout_marginTop="32dp" />
+  <FrameLayout
+    android:layout_width="match_parent" android:layout_height="0dp"
+    android:layout_weight="1">
 
-  <TextView
-    android:id="@+id/errorText"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center"
-    android:textColor="@color/muted"
-    android:textSize="16sp"
-    android:visibility="gone"
-    android:layout_marginTop="32dp" />
+    <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/grid"
+      android:layout_width="match_parent" android:layout_height="match_parent"
+      android:visibility="visible" />
 
-  <androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/grid"
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="1"
-    android:layout_marginTop="8dp" />
+    <ProgressBar
+      android:id="@+id/progressBar"
+      android:layout_width="48dp" android:layout_height="48dp"
+      android:layout_gravity="center"
+      android:visibility="gone" />
+
+    <TextView
+      android:id="@+id/errorText"
+      android:layout_width="wrap_content" android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:textColor="#ff6b6b"
+      android:textSize="16sp"
+      android:gravity="center"
+      android:visibility="gone" />
+  </FrameLayout>
 </LinearLayout>
