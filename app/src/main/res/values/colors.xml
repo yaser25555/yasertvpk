@@ -1,9 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <color name="bg">#FF070A14</color>
-  <color name="panel">#FF101626</color>
-  <color name="accent">#FF00D1B2</color>
-  <color name="text">#FFF7F8FB</color>
-  <color name="muted">#FFAEB7C8</color>
-  <color name="card_bg">#FF1A2240</color>
+  <color name="bg">#FF0D0B1F</color>
+  <color name="panel">#FF151230</color>
+  <color name="accent">#FFF0A500</color>
+  <color name="accent_dim">#CCF0A500</color>
+  <color name="accent_glow">#FF1a73e8</color>
+  <color name="text">#FFFFFFFF</color>
+  <color name="text_secondary">#FFB0C0D0</color>
+  <color name="muted">#FF7088A0</color>
+  <color name="card_bg">#CC181830</color>
+  <color name="card_bg_focused">#88F0A500</color>
+  <color name="tab_bg_normal">#00000000</color>
+  <color name="tab_bg_selected">#FFF0A500</color>
+  <color name="text_hint">#FF8090A0</color>
+  <color name="divider">#FF282848</color>
+  <color name="tab_bar">#FF181830</color>
+  <color name="border_accent">#FF1a73e8</color>
+  <color name="card_bg_solid">#CC181830</color>
+  <color name="focus_overlay">#CCF0A500</color>
+
+  <color name="tab_live">#FFFF6D00</color>
+  <color name="tab_live_bg">#66FF6D00</color>
+  <color name="tab_movies">#FF00C853</color>
+  <color name="tab_movies_bg">#6600C853</color>
+  <color name="tab_series">#FF2979FF</color>
+  <color name="tab_series_bg">#662979FF</color>
+  <color name="tab_favorites">#FFE04080</color>
+  <color name="tab_favorites_bg">#66E04080</color>
+  <color name="tab_m3u">#FF00BCD4</color>
+  <color name="tab_m3u_bg">#6600BCD4</color>
 </resources>

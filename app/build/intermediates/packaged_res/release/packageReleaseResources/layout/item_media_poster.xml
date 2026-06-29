@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:background="@drawable/media_item_bg_selector"
+  android:clickable="true"
+  android:focusable="true"
+  android:orientation="vertical"
+  android:padding="6dp">
+
+  <TextView
+    android:id="@+id/itemNumber"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:visibility="gone" />
+
+  <ImageView
+    android:id="@+id/itemImage"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/tv_poster_height"
+    android:scaleType="centerCrop"
+    android:background="#1A000000" />
+
+  <TextView
+    android:id="@+id/itemTitle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="4dp"
+    android:ellipsize="end"
+    android:maxLines="2"
+    android:textColor="@color/text"
+    android:textSize="@dimen/media_title_size"
+    android:gravity="center" />
+
+  <TextView
+    android:id="@+id/itemRating"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:textColor="@color/accent_glow"
+    android:textSize="10sp"
+    android:visibility="gone" />
+
+  <TextView
+    android:id="@+id/btnFav"
+    android:layout_width="26dp"
+    android:layout_height="26dp"
+    android:layout_gravity="end|top"
+    android:gravity="center"
+    android:textSize="16sp"
+    android:text="☆"
+    android:textColor="@color/accent"
+    android:clickable="true"
+    android:focusable="true"
+    android:visibility="gone" />
+</LinearLayout>

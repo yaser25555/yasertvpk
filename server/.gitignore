@@ -1,0 +1,6 @@
+# Server configuration with secrets (DO NOT COMMIT)
+supabase_config.php
+users.json
+
+# API temp files
+*.log

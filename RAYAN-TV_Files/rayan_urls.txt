@@ -1,0 +1,46 @@
+ http://dashif.org/thumbnail_tile
+#http://www.w3.org/ns/ttml#parameter
+%https://www.googleapis.com/auth/drive
+%https://www.googleapis.com/auth/games
+&http://dashif.org/guidelines/trickmode
+'http://schemas.android.com/apk/res-auto
+'https://www.googleapis.com/auth/plus.me
+(https://www.googleapis.com/auth/appstate
+*http://schemas.android.com/apk/res/android
+*https://www.googleapis.com/auth/drive.apps
+*https://www.googleapis.com/auth/drive.file
+*https://www.googleapis.com/auth/games_lite
+*https://www.googleapis.com/auth/plus.login
++http://dashif.org/guidelines/thumbnail_tile
+-https://www.googleapis.com/auth/drive.appdata
+.https://developer.apple.com/streaming/emsg-id3
+/https://www.googleapis.com/auth/datastoremobile
+0http://dashif.org/guidelines/last-segment-number
+0https://www.googleapis.com/auth/games.firstparty
+<LA_URL>https://x</LA_URL>
+Ahttp://schemas.microsoft.com/DRM/2007/03/protocols/AcquireLicense
+Ghttps://play.google.com/store/apps/details?id=com.mxtech.videoplayer.ad
+Ghttps://play.google.com/store/apps/details?id=org.videolan.vlc&hl=en_US
+RealmTransformer doesn't seem to be applied. Please update the project configuration to use the Realm Gradle plugin. See https://docs.mongodb.com/realm/sdk/android/install/#customize-dependecies-defined-by-the-realm-gradle-plugin
+Rhttps://raw.githubusercontent.com/used4/online/refs/heads/main/Alameer-altqny.json
+RxJava seems to be missing from the classpath. Remember to add it as an implementation dependency. See https://github.com/realm/realm-java/tree/master/examples/rxJavaExample for more details.
+See https://developer.android.com/guide/topics/media/issues/player-accessed-on-wrong-thread
+The coroutines framework is missing from the classpath. Remember to add it as an implementation dependency. See https://github.com/Kotlin/kotlinx.coroutines#android for more details
+X which is not an existing directory. See https://issuetracker.google.com/issues/36918154
+Y does not support RxJava. See https://realm.io/docs/java/latest/#rxjava for more details.
+f (https://developer.android.com/reference/com/google/android/play/core/install/model/InstallErrorCode#
+http://
+http://0.0.0.0:1234
+http://localhost/
+http://ns.adobe.com/xap/1.0/
+http://www.youtube.com/watch?v=
+https://
+https://aomedia.org/emsg/ID3
+https://default.url
+https://plus.google.com/
+https://t.me/shadeedtv
+https://x
+i (https://developer.android.com/reference/com/google/android/play/core/review/model/ReviewErrorCode.html#
+p (https://developer.android.com/reference/com/google/android/play/core/assetpacks/model/AssetPackErrorCode.html#
+u (https://developer.android.com/reference/com/google/android/play/core/splitinstall/model/SplitInstallErrorCode.html#
+yCleartext HTTP traffic not permitted. See https://developer.android.com/guide/topics/media/issues/cleartext-not-permitted

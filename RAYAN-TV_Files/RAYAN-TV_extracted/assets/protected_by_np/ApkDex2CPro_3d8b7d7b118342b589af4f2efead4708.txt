@@ -1,0 +1,4 @@
+ProtectTime: 2026-05-27 20:36:33
+Function: Apk-Dex2C-Pro
+Version: 3.1.40
+Attention: 仅用于个人代码保护，禁止用于非法用途！

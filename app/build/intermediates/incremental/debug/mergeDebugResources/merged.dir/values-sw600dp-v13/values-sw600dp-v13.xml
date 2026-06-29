@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="abc_action_bar_content_inset_material">24dp</dimen>
+    <dimen name="abc_action_bar_content_inset_with_nav">80dp</dimen>
+    <dimen name="abc_action_bar_default_height_material">64dp</dimen>
+    <dimen name="abc_action_bar_default_padding_end_material">8dp</dimen>
+    <dimen name="abc_action_bar_default_padding_start_material">8dp</dimen>
+    <dimen name="abc_config_prefDialogWidth">580dp</dimen>
+    <dimen name="abc_text_size_subtitle_material_toolbar">16dp</dimen>
+    <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
+    <dimen name="category_height">44dp</dimen>
+    <dimen name="category_text_size">18sp</dimen>
+    <dimen name="channel_name_size">16sp</dimen>
+    <dimen name="grid_spacing">8dp</dimen>
+    <dimen name="login_button_height">58dp</dimen>
+    <dimen name="login_card_max_width">520dp</dimen>
+    <dimen name="login_card_padding">32dp</dimen>
+    <dimen name="login_input_height">56dp</dimen>
+    <dimen name="login_logo_height">104dp</dimen>
+    <dimen name="login_logo_width">160dp</dimen>
+    <dimen name="media_image_height">140dp</dimen>
+    <dimen name="media_item_margin">6dp</dimen>
+    <dimen name="media_item_padding">8dp</dimen>
+    <dimen name="media_rating_size">14sp</dimen>
+    <dimen name="media_title_size">16sp</dimen>
+    <dimen name="overlay_panel_width">700dp</dimen>
+    <dimen name="player_control_large">64dp</dimen>
+    <dimen name="player_control_size">48dp</dimen>
+    <dimen name="player_controls_padding">10dp</dimen>
+    <dimen name="screen_padding">14dp</dimen>
+    <dimen name="search_height">52dp</dimen>
+    <dimen name="search_text_size">18sp</dimen>
+    <dimen name="tab_height">54dp</dimen>
+    <dimen name="tab_text_size">20sp</dimen>
+</resources>

@@ -1,0 +1,212 @@
+name: Build FFmpeg for Android
+
+on:
+  workflow_dispatch:
+    inputs:
+      ffmpeg_version:
+        description: FFmpeg version
+        default: "7.1.5"
+        type: string
+
+jobs:
+  build-ffmpeg:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        arch:
+          - target: arm64-v8a
+            host: aarch64-linux-android
+            api: 21
+            toolchain: "21"
+          - target: armeabi-v7a
+            host: armv7a-linux-androideabi
+            api: 16
+            toolchain: "16"
+          - target: x86_64
+            host: x86_64-linux-android
+            api: 21
+            toolchain: "21"
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install NDK
+        run: |
+          $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --install "ndk;27.0.12077973" > /dev/null 2>&1
+          echo "NDK installed"
+
+      - name: Download FFmpeg source
+        run: |
+          FFMPEG_VERSION="${{ inputs.ffmpeg_version || '7.1.5' }}"
+          curl -L -o "ffmpeg-$FFMPEG_VERSION.tar.xz" \
+            "https://ffmpeg.org/releases/ffmpeg-$FFMPEG_VERSION.tar.xz"
+          tar xf "ffmpeg-$FFMPEG_VERSION.tar.xz"
+
+      - name: Apply patches
+        run: |
+          FFMPEG_VERSION="${{ inputs.ffmpeg_version || '7.1.5' }}"
+          cd "ffmpeg-$FFMPEG_VERSION"
+          for patch in "${{ github.workspace }}/ffmpeg-build/patches"/*.patch; do
+            if [ -f "$patch" ]; then
+              echo "Applying: $patch"
+              patch -p1 < "$patch" || true
+            fi
+          done
+
+      - name: Build FFmpeg for ${{ matrix.arch.target }}
+        run: |
+          FFMPEG_VERSION="${{ inputs.ffmpeg_version || '7.1.5' }}"
+          cd "ffmpeg-$FFMPEG_VERSION"
+
+          export ANDROID_NDK_HOME="$ANDROID_SDK_ROOT/ndk/27.0.12077973"
+          TOOLCHAIN="$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/linux-x86_64"
+
+          export CC="$TOOLCHAIN/bin/${{ matrix.arch.host }}${{ matrix.arch.toolchain }}-clang"
+          export CXX="$TOOLCHAIN/bin/${{ matrix.arch.host }}${{ matrix.arch.toolchain }}-clang++"
+          export AR="$TOOLCHAIN/bin/llvm-ar"
+          export NM="$TOOLCHAIN/bin/llvm-nm"
+          export RANLIB="$TOOLCHAIN/bin/llvm-ranlib"
+          export STRIP="$TOOLCHAIN/bin/llvm-strip"
+          export CFLAGS="-O2 -fPIC -DANDROID -DNDEBUG"
+          export LDFLAGS="-Wl,-soname,libffmpeg.so -Wl,--no-undefined"
+
+          ./configure \
+            --prefix="${{ github.workspace }}/ffmpeg-output/${{ matrix.arch.target }}" \
+            --arch="${{ matrix.arch.target }}" \
+            --target-os=android \
+            --cc="$CC" \
+            --cxx="$CXX" \
+            --ar="$AR" \
+            --nm="$NM" \
+            --ranlib="$RANLIB" \
+            --strip="$STRIP" \
+            --enable-cross-compile \
+            --enable-small \
+            --enable-optimizations \
+            --disable-doc \
+            --disable-programs \
+            --disable-debug \
+            --enable-pic \
+            --enable-shared \
+            --disable-static \
+            --enable-network \
+            --enable-protocol=http \
+            --enable-protocol=https \
+            --enable-protocol=hls \
+            --enable-protocol=tcp \
+            --enable-protocol=udp \
+            --enable-protocol=rtmp \
+            --enable-demuxer=hls \
+            --enable-demuxer=mpegts \
+            --enable-demuxer=mpegvideo \
+            --enable-demuxer=flv \
+            --enable-demuxer=mov \
+            --enable-demuxer=matroska \
+            --enable-parser=h264 \
+            --enable-parser=hevc \
+            --enable-parser=aac \
+            --enable-decoder=h264 \
+            --enable-decoder=hevc \
+            --enable-decoder=aac \
+            --enable-decoder=mp3 \
+            --enable-decoder=mpeg4 \
+            --enable-bsf=h264_mp4toannexb \
+            --enable-bsf=hevc_mp4toannexb \
+            --enable-muxer=mp4 \
+            --enable-muxer=mpegts \
+            --enable-avfilter \
+            --disable-filter=* \
+            --enable-filter=aresample \
+            --enable-filter=scale \
+            --extra-cflags="$CFLAGS" \
+            --extra-ldflags="$LDFLAGS"
+
+          make -j$(nproc)
+          make install
+          make clean
+
+      - name: Build JNI Player for ${{ matrix.arch.target }}
+        run: |
+          export ANDROID_NDK_HOME="$ANDROID_SDK_ROOT/ndk/27.0.12077973"
+          TOOLCHAIN="$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/linux-x86_64"
+
+          CC="$TOOLCHAIN/bin/${{ matrix.arch.host }}${{ matrix.arch.toolchain }}-clang"
+          INC="-I${{ github.workspace }}/app/src/main/cpp -I${{ github.workspace }}/ffmpeg-output/${{ matrix.arch.target }}/include"
+          CFLAGS="-O2 -fPIC -DANDROID -DNDEBUG $INC"
+          LDFLAGS="-shared -Wl,-soname,libffmpegJNI.so"
+          FFMPEG_LIBS="-L${{ github.workspace }}/ffmpeg-output/${{ matrix.arch.target }}/lib -lavcodec -lavformat -lavutil -lswresample -lswscale -lavfilter"
+
+          $CC $CFLAGS -c "${{ github.workspace }}/app/src/main/cpp/string_encryption.c" -o /tmp/se_${{ matrix.arch.target }}.o
+          $CC $CFLAGS -c "${{ github.workspace }}/app/src/main/cpp/native_player.c" -o /tmp/np_${{ matrix.arch.target }}.o
+          $CC $CFLAGS -c "${{ github.workspace }}/app/src/main/cpp/ffmpeg_player.c" -o /tmp/fp_${{ matrix.arch.target }}.o
+          $CC $CFLAGS -c "${{ github.workspace }}/app/src/main/cpp/jni_bridge.c" -o /tmp/jb_${{ matrix.arch.target }}.o
+
+          $CC $LDFLAGS \
+            /tmp/se_${{ matrix.arch.target }}.o \
+            /tmp/np_${{ matrix.arch.target }}.o \
+            /tmp/fp_${{ matrix.arch.target }}.o \
+            /tmp/jb_${{ matrix.arch.target }}.o \
+            $FFMPEG_LIBS -lm -lz -landroid -llog \
+            -o "${{ github.workspace }}/ffmpeg-output/${{ matrix.arch.target }}/libffmpegJNI.so"
+
+          $TOOLCHAIN/bin/llvm-strip "${{ github.workspace }}/ffmpeg-output/${{ matrix.arch.target }}/libffmpegJNI.so"
+
+      - name: Upload FFmpeg binaries (${{ matrix.arch.target }})
+        uses: actions/upload-artifact@v4
+        with:
+          name: ffmpeg-${{ matrix.arch.target }}
+          path: ffmpeg-output/${{ matrix.arch.target }}/lib/
+          compression-level: 0
+
+  create-release:
+    needs: build-ffmpeg
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Organize jniLibs
+        run: |
+          mkdir -p jniLibs
+          for dir in artifacts/*/; do
+            name=$(basename "$dir")
+            target=""
+            case "$name" in
+              ffmpeg-arm64-v8a) target="arm64-v8a" ;;
+              ffmpeg-armeabi-v7a) target="armeabi-v7a" ;;
+              ffmpeg-x86_64) target="x86_64" ;;
+            esac
+            if [ -n "$target" ]; then
+              mkdir -p "jniLibs/$target"
+              cp "$dir"/*.so "jniLibs/$target/"
+            fi
+          done
+          echo "Organized libraries:"
+          find jniLibs -type f | sort
+
+      - name: Upload final jniLibs
+        uses: actions/upload-artifact@v4
+        with:
+          name: ffmpeg-jniLibs
+          path: jniLibs/
+          compression-level: 0
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: jniLibs/**/*.so
+          generate_release_notes: true

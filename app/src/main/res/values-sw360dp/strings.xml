@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="live">مباشر</string>
+  <string name="worldcup">كأس العالم</string>
+  <string name="movies">أفلام</string>
+  <string name="series">مسلسلات</string>
+</resources>

@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.yassertv.app-mergeDebugResources-30:/values-sw360dp-v13/values-sw360dp-v13.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\pool\\Desktop\\New folder (2)\\RAYAN-TV_Files\\yasser-tv-android\\app\\src\\main\\res\\values-sw360dp\\strings.xml",
+                    "from": {
+                        "startLines": "2,4,5,3",
+                        "startColumns": "2,2,2,2",
+                        "startOffsets": "53,136,175,90",
+                        "endColumns": "36,38,40,45",
+                        "endOffsets": "87,172,213,133"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,94,135,178",
+                        "endColumns": "38,40,42,47",
+                        "endOffsets": "89,130,173,221"
+                    }
+                }
+            ]
+        }
+    ]
+}

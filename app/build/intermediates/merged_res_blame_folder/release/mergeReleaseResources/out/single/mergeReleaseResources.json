@@ -1,0 +1,250 @@
+[
+    {
+        "merged": "com.yassertv.app-release-32:/layout-television_item_category.xml.flat",
+        "source": "com.yassertv.app-main-33:/layout-television/item_category.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.yassertv.app-main-33:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/layout-television_activity_main.xml.flat",
+        "source": "com.yassertv.app-main-33:/layout-television/activity_main.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/drawable_btn_m3u_import.xml.flat",
+        "source": "com.yassertv.app-main-33:/drawable/btn_m3u_import.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/drawable_maradona.jpg.flat",
+        "source": "com.yassertv.app-main-33:/drawable/maradona.jpg"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/xml_network_security_config.xml.flat",
+        "source": "com.yassertv.app-main-33:/xml/network_security_config.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.yassertv.app-main-33:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/drawable_ic_whatsapp.xml.flat",
+        "source": "com.yassertv.app-main-33:/drawable/ic_whatsapp.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/drawable_tv_icon_bg.xml.flat",
+        "source": "com.yassertv.app-main-33:/drawable/tv_icon_bg.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/layout-television_item_media_poster.xml.flat",
+        "source": "com.yassertv.app-main-33:/layout-television/item_media_poster.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/color_category_text_selector.xml.flat",
+        "source": "com.yassertv.app-main-33:/color/category_text_selector.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/drawable_tab_bar_bg.xml.flat",
+        "source": "com.yassertv.app-main-33:/drawable/tab_bar_bg.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/drawable_login_social_btn_bg.xml.flat",
+        "source": "com.yassertv.app-main-33:/drawable/login_social_btn_bg.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/layout_item_channel.xml.flat",
+        "source": "com.yassertv.app-main-33:/layout/item_channel.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/drawable_tab_glass_fav.xml.flat",
+        "source": "com.yassertv.app-main-33:/drawable/tab_glass_fav.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/drawable_media_item_bg_selector.xml.flat",
+        "source": "com.yassertv.app-main-33:/drawable/media_item_bg_selector.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/drawable_tab_glass_series.xml.flat",
+        "source": "com.yassertv.app-main-33:/drawable/tab_glass_series.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/layout_activity_login.xml.flat",
+        "source": "com.yassertv.app-main-33:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "com.yassertv.app-main-33:/mipmap-hdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/layout_item_media.xml.flat",
+        "source": "com.yassertv.app-main-33:/layout/item_media.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/drawable_content_overlay_bg.xml.flat",
+        "source": "com.yassertv.app-main-33:/drawable/content_overlay_bg.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/drawable_tv_card_bg_selector.xml.flat",
+        "source": "com.yassertv.app-main-33:/drawable/tv_card_bg_selector.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/drawable_tab_glass_live.xml.flat",
+        "source": "com.yassertv.app-main-33:/drawable/tab_glass_live.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/drawable_search_bg.xml.flat",
+        "source": "com.yassertv.app-main-33:/drawable/search_bg.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/drawable_sidebar_item_bg.xml.flat",
+        "source": "com.yassertv.app-main-33:/drawable/sidebar_item_bg.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/layout_item_media_live.xml.flat",
+        "source": "com.yassertv.app-main-33:/layout/item_media_live.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.yassertv.app-main-33:/mipmap-xhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/layout_dialog_welcome.xml.flat",
+        "source": "com.yassertv.app-main-33:/layout/dialog_welcome.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.yassertv.app-main-33:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/layout_item_category.xml.flat",
+        "source": "com.yassertv.app-main-33:/layout/item_category.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/layout_activity_main.xml.flat",
+        "source": "com.yassertv.app-main-33:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/anim_grid_layout_animation.xml.flat",
+        "source": "com.yassertv.app-main-33:/anim/grid_layout_animation.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/drawable_tab_glass_movies.xml.flat",
+        "source": "com.yassertv.app-main-33:/drawable/tab_glass_movies.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/drawable_badge_bg.xml.flat",
+        "source": "com.yassertv.app-main-33:/drawable/badge_bg.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/anim_item_slide_in.xml.flat",
+        "source": "com.yassertv.app-main-33:/anim/item_slide_in.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.yassertv.app-main-33:/mipmap-xxxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/drawable_tab_bg.xml.flat",
+        "source": "com.yassertv.app-main-33:/drawable/tab_bg.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/color_tab_text_selector.xml.flat",
+        "source": "com.yassertv.app-main-33:/color/tab_text_selector.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/drawable_login_input_bg.xml.flat",
+        "source": "com.yassertv.app-main-33:/drawable/login_input_bg.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/drawable_category_bg_selector.xml.flat",
+        "source": "com.yassertv.app-main-33:/drawable/category_bg_selector.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/layout_dialog_loading.xml.flat",
+        "source": "com.yassertv.app-main-33:/layout/dialog_loading.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.yassertv.app-main-33:/mipmap-xxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/drawable_tab_glass_m3u.xml.flat",
+        "source": "com.yassertv.app-main-33:/drawable/tab_glass_m3u.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.yassertv.app-main-33:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/drawable_login_button_bg.xml.flat",
+        "source": "com.yassertv.app-main-33:/drawable/login_button_bg.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/drawable_icon_banner.png.flat",
+        "source": "com.yassertv.app-main-33:/drawable/icon_banner.png"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/drawable_logo.jpg.flat",
+        "source": "com.yassertv.app-main-33:/drawable/logo.jpg"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/drawable_icon.xml.flat",
+        "source": "com.yassertv.app-main-33:/drawable/icon.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/layout_item_sidebar_category.xml.flat",
+        "source": "com.yassertv.app-main-33:/layout/item_sidebar_category.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/drawable_content_panel_bg.xml.flat",
+        "source": "com.yassertv.app-main-33:/drawable/content_panel_bg.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/drawable_login_card_bg.xml.flat",
+        "source": "com.yassertv.app-main-33:/drawable/login_card_bg.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/drawable-nodpi_logo.png.flat",
+        "source": "com.yassertv.app-main-33:/drawable-nodpi/logo.png"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.yassertv.app-main-33:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/drawable_ic_fullscreen_exit.xml.flat",
+        "source": "com.yassertv.app-main-33:/drawable/ic_fullscreen_exit.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/layout-television_item_media_live.xml.flat",
+        "source": "com.yassertv.app-main-33:/layout-television/item_media_live.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/drawable_tv_panel_bg.xml.flat",
+        "source": "com.yassertv.app-main-33:/drawable/tv_panel_bg.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/layout_item_media_poster.xml.flat",
+        "source": "com.yassertv.app-main-33:/layout/item_media_poster.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.yassertv.app-main-33:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/drawable_ic_telegram.xml.flat",
+        "source": "com.yassertv.app-main-33:/drawable/ic_telegram.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/drawable_ic_fullscreen.xml.flat",
+        "source": "com.yassertv.app-main-33:/drawable/ic_fullscreen.xml"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "com.yassertv.app-main-33:/mipmap-mdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.yassertv.app-release-32:/drawable_player_btn_focus.xml.flat",
+        "source": "com.yassertv.app-main-33:/drawable/player_btn_focus.xml"
+    }
+]

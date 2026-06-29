@@ -1,0 +1,32 @@
+
+GENERAL TV BOX - API وثائق فك التشفير
+=====================================
+
+🔑 ما وجدناه:
+--------------
+
+1. Base API URL: https://koralive.lol/aghmdev/kooralive/api/v26
+2. App Website: https://www.genralapp.lat
+3. Alternative Domain: https://koralive.lol
+4. Brightcove API (used for some content):
+   - Base URL: https://edge.api.brightcove.com/playback/v1/accounts/6057955906001/videos/ref:
+   - Policy Key: BCpkADawqM0ulfr-fTtpl4YejzzO3z_76a_ZRKgvLDjHckfm-KQwPTJRIv8pznKIST7BMwBUYIVW-hySTUB5PQ8altdPHr9UcaQnGrs_ePsEEYoyoGhi3ezBsr3YRpLv9xqjzcBJBxVr_6Sh
+
+🔐 كيف يعمل التشفير؟
+------------------
+- التطبيق يستخدم تشفير XOR مع مفتاح مشفر ب Base64
+- المفتاح: "T1NqUVptVnNCczY2KMOpajUyQD9Odk5zWGFWcVNw" (Base64)
+- نص مشفر يتم فك تشفيره أولاً من Base64 ثم XOR مع المفتاح
+
+📱 المشروع الحالي (YasserTV):
+------------------------------
+- المشروع موجود في: c:\Users\pool\Desktop\tv\yasser-tv-android
+- يستخدم حالياً API: http://192.142.31.13:8080 (Xtream Codes API)
+- يستخدم Media3 ExoPlayer و IjkPlayer لتشغيل القنوات (يدعم HLS/m3u8)
+
+✅ الخطوات المقترحة لدمج API الجديد:
+------------------------------------
+1. اختبار نقاط النهاية API الجديدة (مثل: /live, /channels)
+2. إضافة نوع مصدر محتوى جديد في المشروع
+3. تحديث Config.kt لاضافة الرابط الجديد
+4. تحديث ApiClient.kt لاستقبال البيانات من المصدر الجديد

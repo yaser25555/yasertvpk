@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/bg"
+  android:fillViewport="true"
+  android:padding="@dimen/screen_padding">
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginHorizontal="8dp"
+      android:background="@drawable/login_card_bg"
+      android:gravity="center"
+      android:maxWidth="@dimen/login_card_max_width"
+      android:orientation="vertical"
+      android:padding="@dimen/login_card_padding">
+
+      <ImageView
+        android:id="@+id/loginLogo"
+        android:layout_width="@dimen/login_logo_width"
+        android:layout_height="@dimen/login_logo_height"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/app_name"
+        android:scaleType="fitCenter"
+        android:src="@drawable/logo" />
+
+      <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="@string/login_subtitle"
+        android:textColor="@color/muted"
+        android:textSize="@dimen/search_text_size" />
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageButton
+          android:id="@+id/btnWhatsApp"
+          android:layout_width="48dp"
+          android:layout_height="48dp"
+          android:layout_marginHorizontal="8dp"
+          android:background="@drawable/login_social_btn_bg"
+          android:contentDescription="واتساب"
+          android:focusable="true"
+          android:nextFocusDown="@id/usernameInput"
+          android:scaleType="fitCenter"
+          android:src="@drawable/ic_whatsapp" />
+
+        <ImageButton
+          android:id="@+id/btnTelegram"
+          android:layout_width="48dp"
+          android:layout_height="48dp"
+          android:layout_marginHorizontal="8dp"
+          android:background="@drawable/login_social_btn_bg"
+          android:contentDescription="تيليجرام"
+          android:focusable="true"
+          android:nextFocusDown="@id/usernameInput"
+          android:scaleType="fitCenter"
+          android:src="@drawable/ic_telegram" />
+      </LinearLayout>
+
+      <EditText
+        android:id="@+id/usernameInput"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/login_input_height"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/login_input_bg"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:hint="@string/login_username"
+        android:imeOptions="actionNext"
+        android:inputType="text"
+        android:nextFocusDown="@id/passwordInput"
+        android:nextFocusUp="@id/btnWhatsApp"
+        android:paddingHorizontal="14dp"
+        android:singleLine="true"
+        android:textColor="@color/text"
+        android:textColorHint="@color/text_hint"
+        android:textSize="@dimen/search_text_size" />
+
+      <EditText
+        android:id="@+id/passwordInput"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/login_input_height"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/login_input_bg"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:hint="@string/login_password"
+        android:imeOptions="actionDone"
+        android:inputType="textPassword"
+        android:nextFocusDown="@id/loginButton"
+        android:nextFocusUp="@id/usernameInput"
+        android:paddingHorizontal="14dp"
+        android:singleLine="true"
+        android:textColor="@color/text"
+        android:textColorHint="@color/text_hint"
+        android:textSize="@dimen/search_text_size" />
+
+      <TextView
+        android:id="@+id/loginMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:minHeight="22dp"
+        android:textColor="#FFFF6B6B"
+        android:textSize="13sp" />
+
+      <Button
+        android:id="@+id/loginButton"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/login_button_height"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/login_button_bg"
+        android:focusable="true"
+        android:nextFocusUp="@id/passwordInput"
+        android:text="@string/login_button"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+      <ProgressBar
+        android:id="@+id/loginProgress"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="16dp"
+        android:visibility="gone" />
+    </LinearLayout>
+
+    <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="12dp"
+      android:gravity="center"
+      android:text="@string/login_developer"
+      android:textColor="@color/muted"
+      android:textSize="12sp" />
+  </LinearLayout>
+</ScrollView>

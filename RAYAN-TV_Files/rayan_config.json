@@ -1,0 +1,38 @@
+{
+  "show": true,
+  "title": "اهلا بك في تطبيق ريان",
+  "version": "9",
+  "headline": "اكواد التفعيل تجدها ف التلجرام",
+  "description": "",
+  "force": false,
+  "minVersion": "",
+  "credit": "hiqq3",
+  "features": [
+    "",
+    "",
+    "",
+    ""
+  ],
+  "trial": {
+    "enabled": true,
+    "text": "𝗖𝗮𝗻𝗰𝗲𝗹",
+    "minutes": 1400
+  },
+  "update": {
+    "text": "قناة التلجرام",
+    "url": "https://t.me/rayantvv"
+  },
+  "colors": {
+    "bgStart": "#0D0B1F",
+    "bgEnd": "#1A0A2E",
+    "border": "#7B2FBE",
+    "accent": "#F0A500",
+    "highlight": "#C850C0",
+    "muted": "#3D1A6E",
+    "divider": "#4A1A8A",
+    "textPrimary": "#F5F0FF",
+    "textSecondary": "#C8A8FF",
+    "buttonTrial": "#3D1A6E",
+    "buttonUpdate": "#7B2FBE"
+  }
+}

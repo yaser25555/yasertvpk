@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="category_height">40dp</dimen>
+    <dimen name="category_text_size">16sp</dimen>
+    <dimen name="channel_name_size">16sp</dimen>
+    <dimen name="grid_spacing">6dp</dimen>
+    <dimen name="overlay_panel_width">380dp</dimen>
+    <dimen name="player_control_large">56dp</dimen>
+    <dimen name="player_control_size">44dp</dimen>
+    <dimen name="screen_padding">16dp</dimen>
+    <dimen name="search_height">42dp</dimen>
+    <dimen name="search_text_size">16sp</dimen>
+    <dimen name="tab_height">46dp</dimen>
+    <dimen name="tab_text_size">18sp</dimen>
+    <dimen name="tv_card_radius">10dp</dimen>
+    <dimen name="tv_item_title_size">15sp</dimen>
+    <dimen name="tv_poster_height">100dp</dimen>
+    <dimen name="tv_section_title_size">18sp</dimen>
+</resources>

@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.yassertv.app-mergeReleaseResources-30:/values-television-v13/values-television-v13.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\pool\\Desktop\\New folder (2)\\RAYAN-TV_Files\\yasser-tv-android\\app\\src\\main\\res\\values-television\\dimens.xml",
+                    "from": {
+                        "startLines": "6,5,17,10,9,16,15,2,7,8,3,4,12,14,11,13",
+                        "startColumns": "2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2",
+                        "startOffsets": "228,180,742,412,362,692,643,53,273,316,97,137,500,595,453,544",
+                        "endColumns": "44,47,46,40,49,49,48,43,42,45,39,42,43,47,46,50",
+                        "endOffsets": "270,225,786,450,409,739,689,94,313,359,134,177,541,640,497,592"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,102,152,201,244,296,348,399,445,490,538,580,625,671,721,770",
+                        "endColumns": "46,49,48,42,51,51,50,45,44,47,41,44,45,49,48,52",
+                        "endOffsets": "97,147,196,239,291,343,394,440,485,533,575,620,666,716,765,818"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Allow direct access to PHP files
+RewriteRule ^(.*\.php)$ $1 [L]
+
+# Deny access to users.json
+<Files "users.json">
+    Require all denied
+</Files>

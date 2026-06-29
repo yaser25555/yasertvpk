@@ -1,11 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">Yasser TV</string>
+  <string name="app_name">YasserTV</string>
   <string name="live">قنوات مباشرة</string>
   <string name="worldcup">كأس العالم</string>
   <string name="movies">أفلام</string>
   <string name="series">مسلسلات</string>
   <string name="favorites">المفضلة</string>
+  <string name="m3u_tab">مباشر2</string>
   <string name="loading">بحث...</string>
   <string name="error">خطأ في الاتصال</string>
+  <string name="press_back_again_exit">اضغط رجوع مرة أخرى للخروج من التطبيق</string>
+  <string name="exit_fullscreen">تم الخروج من وضع ملء الشاشة</string>
+  <string name="show_channels">تم إظهار قائمة القنوات</string>
+  <string name="channel_next">التالي: %1$s</string>
+  <string name="channel_prev">السابق: %1$s</string>
+  <string name="no_channel_next">لا توجد قناة تالية</string>
+  <string name="no_channel_prev">لا توجد قناة سابقة</string>
+  <string name="brand_name">ماردونا</string>
+  <string name="splash_instruction">اختر قناة من القائمة للبدء\n⋆ غير المشغل من زر IJK/EXO ⋆\n⋆ اضبط الجودة من ⚙ ⋆</string>
+  <string name="search_hint">بحث بالاسم...</string>
+  <string name="swipe_channel_hint">اسحب يميناً/يساراً لتغيير القناة</string>
+  <string name="login_brand">YasserTV</string>
+  <string name="login_subtitle">أدخل بيانات اشتراكك للمتابعة</string>
+  <string name="login_developer">تم تطويره بواسطة فريق SNY</string>
+  <string name="login_username">اسم المستخدم</string>
+  <string name="login_password">كلمة المرور</string>
+  <string name="login_button">دخول</string>
+  <string name="login_missing_fields">أدخل اسم المستخدم وكلمة المرور</string>
+  <string name="login_server_not_configured">يرجى ضبط رابط سيرفر تسجيل الدخول</string>
+  <string name="login_failed">بيانات الدخول غير صحيحة</string>
+  <string name="login_connection_error">تعذر الاتصال بسيرفر تسجيل الدخول</string>
 </resources>

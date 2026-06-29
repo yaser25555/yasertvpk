@@ -1,0 +1,86 @@
+--- a/libavformat/hls.c
++++ b/libavformat/hls.c
+@@ -45,7 +45,7 @@
+ #include "url.h"
+ 
+ #define MAX_CACHE 0  // disable segment cache
+-#define MAX_SEGMENTS 20
++#define MAX_SEGMENTS 80
+ #define READ_BUFFER_BLOCK_SIZE (1 << 15) // 32KB
+ #define INITIAL_BUFFER_SIZE 32768        // 32KB
+ #define MAX_FIELD_LEN 64
+@@ -122,7 +122,7 @@ struct segment {
+ 
+ struct playlist {
+     const char *url;
+-    unsigned int max_segments;
++    unsigned int max_segments = 80;
+     unsigned int n_segments;
+     struct segment **segments;
+ 
+@@ -2553,6 +2553,9 @@ static int hls_read_header(AVFormatContext *s)
+     if (ret < 0)
+         return ret;
+     c->interrupt_callback = &s->interrupt_callback;
++
++    // Increase max reconnect attempts for live
++    c->http_reconnect = 10;
+ 
+     c->playlists = av_calloc(c->n_playlists, sizeof(*c->playlists));
+     if (!c->playlists)
+--- a/libavformat/http.c
++++ b/libavformat/http.c
+@@ -40,6 +40,7 @@
+ #include "libavutil/avstring.h"
+ #include "libavutil/bprint.h"
+ #include "libavutil/opt.h"
++#include "libavutil/time.h"
+ 
+ #define HTTP_HEADERS_ALLOWED_BEFORE_CONTINUE 7
+ #define HTTP_MAX_REDIRECTS 8
+@@ -79,7 +80,7 @@ typedef struct HTTPContext {
+     int seek_ret;
+     int chunked_encoding;
+     int connection_error;
+-    int reconnect;
++    int reconnect = 1;
+     int reconnect_at_eof;
+     int reconnect_delay_max;
+     int listen;
+@@ -176,6 +177,9 @@ static const AVOption options[] = {
+     { "reconnect", "auto reconnect after disconnect before EOF", OFFSET(reconnect), AV_OPT_TYPE_BOOL, { .i64 = 0 }, 0, 1, DEC },
+     { "reconnect_at_eof", "auto reconnect at EOF", OFFSET(reconnect_at_eof), AV_OPT_TYPE_BOOL, { .i64 = 0 }, 0, 1, DEC },
+     { "reconnect_streamed", "auto reconnect streamed / non seekable streams", OFFSET(reconnect_streamed), AV_OPT_TYPE_BOOL, { .i64 = 0 }, 0, 1, DEC },
++    { "reconnect_delay_max", "max reconnect delay in seconds", OFFSET(reconnect_delay_max), AV_OPT_TYPE_INT, { .i64 = 30 }, 0, 120, DEC },
++    { "reconnect_delay_min", "min reconnect delay in seconds", OFFSET(reconnect_delay_min), AV_OPT_TYPE_INT, { .i64 = 1 }, 0, 30, DEC },
++    { "reconnect_max_retries", "max number of reconnect attempts", OFFSET(reconnect_max_retries), AV_OPT_TYPE_INT, { .i64 = 20 }, 0, 100, DEC },
+     { "listen", "listen on HTTP", OFFSET(listen), AV_OPT_TYPE_INT, { .i64 = 0 }, 0, 1, DEC | D },
+     { "resource", "resource specified by URI", OFFSET(uri), AV_OPT_TYPE_STRING, { .str = NULL }, 0, 0, DEC },
+     { "user_agent", "set user agent", OFFSET(user_agent), AV_OPT_TYPE_STRING, { .str = DEFAULT_USER_AGENT }, 0, 0, DEC },
+--- a/libavformat/http.c
++++ b/libavformat/http.c
+@@ -186,6 +186,8 @@ typedef struct HTTPContext {
+     int reconnect_delay_max;
+     int reconnect_delay_min;
+     int reconnect_max_retries;
++    int reconnect_delay_current;
++    int64_t reconnect_time;
+     int listen;
+     char *resource;
+     int reply_code;
+@@ -1820,6 +1822,15 @@ static int http_read_stream(URLContext *h, uint8_t *buf, int size)
+     if (c->chunked_encoding && err == AVERROR_EOF && c->chunksize == 0)
+         return 0;
+     if (c->reconnect) {
++        // Exponential backoff for reconnection
++        if (c->reconnect_delay_current == 0)
++            c->reconnect_delay_current = c->reconnect_delay_min;
++        else
++            c->reconnect_delay_current = FFMIN(c->reconnect_delay_current * 2, c->reconnect_delay_max * 1000000);
++
++        if (av_gettime_relative() - c->reconnect_time < c->reconnect_delay_current)
++            return err;
++
+         if (err != AVERROR_EXIT) {
+             uint8_t header[INPUT_BUFFER_PADDING_SIZE];
+             int off = s->io_data - s->io_buffer;
